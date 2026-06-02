@@ -1,0 +1,12 @@
+{
+  "images": [
+    "screenshots/001.png",
+    "screenshots/002.png",
+    "screenshots/003.png"
+  ],
+  "sounds": [
+    "alerts/001.mp3",
+    "alerts/002.mp3",
+    "alerts/003.mp3"
+  ]
+}
