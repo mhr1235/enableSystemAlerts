@@ -142,11 +142,15 @@ document.body.addEventListener("touchstart", () => {
 }); */
 
 document.body.addEventListener("click", () => {
-  startExperience();
+  if (experienceStarted) {
+    switchImage();
+  }
 });
 
 document.body.addEventListener("touchstart", () => {
-  startExperience();
+  if (experienceStarted) {
+    switchImage();
+  }
 });
 
 loadManifest();
@@ -163,11 +167,10 @@ function activateToggle(event) {
 
   setTimeout(() => {
     startExperience();
-  }, 300);
+  }, 500);
 }
 
 alertToggle.addEventListener("pointerdown", activateToggle);
-
 /*
  * Auto-start after 6 seconds.
  * Images will start automatically.
