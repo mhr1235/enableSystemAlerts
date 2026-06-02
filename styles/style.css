@@ -43,7 +43,44 @@
 #alertToggle.enabled #toggleKnob {
   transform: translateX(42px);
 }
+#alertToggle.enabled {
+  border-color: #ffffff;
+  background: #39ff14;
+  box-shadow:
+    0 0 12px rgba(255,255,255,.9),
+    0 0 28px rgba(57,255,20,.8),
+    0 0 48px rgba(57,255,20,.4);
+}
 
+#alertToggle.enabled #toggleKnob {
+  transform: translateX(42px);
+
+  background: linear-gradient(
+    90deg,
+    #39ff14 0%,
+    #9dff8a 35%,
+    #ffffff 50%,
+    #9dff8a 65%,
+    #39ff14 100%
+  );
+
+  background-size: 400% 100%;
+  animation: toggleSweep 0.4s linear infinite;
+
+  box-shadow:
+    0 0 12px rgba(255,255,255,.9),
+    0 0 28px rgba(57,255,20,.8);
+}
+
+@keyframes toggleSweep {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0% 0;
+  }
+}
 #splash {
   position: fixed;
   inset: 0;
@@ -55,6 +92,47 @@
   align-items: center;
   justify-content: center;
   font-family: "Sterion", monospace;
+}
+
+#neonText {
+  font-family: "Sterion", monospace;
+
+ background: linear-gradient(
+    90deg,
+    #39ff14 0%,
+    #39ff14 40%,
+
+    #9dff8a 46%,
+    #d8ffcf 48%,
+    #ffffff 50%,
+    #d8ffcf 52%,
+    #9dff8a 54%,
+
+    #39ff14 60%,
+    #39ff14 100%
+  );
+
+  background-size: 400% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation: textSweep 3s linear infinite;
+
+  text-shadow:
+    0 0 8px rgba(57,255,20,.6),
+    0 0 20px rgba(57,255,20,.3);
+}
+
+@keyframes textSweep {
+  from {
+    background-position: 100% 0;
+  }
+
+  to {
+    background-position: 0% 0;
+  }
 }
 
 /* #splashTitle {
@@ -78,6 +156,56 @@
   margin-bottom: 2rem;
 }
 
+/*
+ * Old letter-by-letter animation preserved for reference.
+ */
+
+/* #settingText span {
+  display: inline-block;
+  animation: letterShine 2.8s infinite;
+}
+
+#settingText span:nth-child(1) { animation-delay: 0s; }
+#settingText span:nth-child(2) { animation-delay: 0.08s; }
+#settingText span:nth-child(3) { animation-delay: 0.16s; }
+#settingText span:nth-child(4) { animation-delay: 0.24s; }
+#settingText span:nth-child(5) { animation-delay: 0.32s; }
+#settingText span:nth-child(6) { animation-delay: 0.40s; }
+#settingText span:nth-child(7) { animation-delay: 0.48s; }
+#settingText span:nth-child(8) { animation-delay: 0.56s; }
+#settingText span:nth-child(9) { animation-delay: 0.64s; }
+#settingText span:nth-child(10) { animation-delay: 0.72s; }
+#settingText span:nth-child(11) { animation-delay: 0.80s; }
+#settingText span:nth-child(12) { animation-delay: 0.88s; }
+#settingText span:nth-child(13) { animation-delay: 0.96s; }
+#settingText span:nth-child(14) { animation-delay: 1.04s; }
+#settingText span:nth-child(15) { animation-delay: 1.12s; }
+#settingText span:nth-child(16) { animation-delay: 1.20s; }
+#settingText span:nth-child(17) { animation-delay: 1.28s; }
+#settingText span:nth-child(18) { animation-delay: 1.36s; }
+
+@keyframes letterShine {
+  0%, 70%, 100% {
+    color: #39ff14;
+    text-shadow:
+      0 0 4px #39ff14,
+      0 0 10px #39ff14;
+    transform: scale(1);
+  }
+
+  10% {
+    color: #7dfff7;
+
+    text-shadow:
+      0 0 8px #7dfff7,
+      0 0 16px #00ffff,
+      0 0 32px #39ff14,
+      0 0 48px #39ff14;
+
+    transform: scale(1.08);
+  }
+}
+*/
 #touchStart {
   position: absolute;
   bottom: 2rem;

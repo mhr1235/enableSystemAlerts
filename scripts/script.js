@@ -180,4 +180,4 @@ setTimeout(() => {
   if (!experienceStarted) {
     startExperience();
   }
-}, 6000);
+}, 12000);
