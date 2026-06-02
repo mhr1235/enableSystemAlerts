@@ -126,17 +126,25 @@
       -webkit-user-drag: none;
     }
 
-    @media (orientation: portrait) {
-      #rotateMessage {
-        display: flex;
-      }
 
-      #screen {
-        display: none;
-      }
-    }
 
-    @media (orientation: landscape) {
+ @media (orientation: portrait) {
+
+  #rotateMessage {
+    display: flex;
+    z-index: 1000;
+  }
+
+  #screen {
+    display: none;
+  }
+
+  #splash {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) {
       #rotateMessage {
         display: none;
       }
