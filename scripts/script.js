@@ -1,5 +1,7 @@
 let images = [];
 let sounds = [];
+let imageDeck = [];
+
 
 const splash = document.getElementById("splash");
 const screenshot = document.getElementById("screenshot");
@@ -10,6 +12,7 @@ let timer = null;
 let audioUnlocked = false;
 let currentSound = null;
 let experienceStarted = false;
+
 
 async function loadManifest() {
   try {
@@ -105,15 +108,35 @@ function playRandomSound() {
   });
 }
 
+function shuffleArray(array) {
+  const copy = [...array];
+
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+
+  return copy;
+}
+
+function refillImageDeck() {
+  imageDeck = shuffleArray(images);
+
+  // Avoid starting the new deck with the same image currently showing
+  if (imageDeck.length > 1 && imageDeck[0] === currentImage) {
+    const first = imageDeck.shift();
+    imageDeck.push(first);
+  }
+}
 
 function switchImage() {
   if (images.length === 0) return;
 
-  let nextImage = randomItem(images);
-
-  while (images.length > 1 && nextImage === currentImage) {
-    nextImage = randomItem(images);
+  if (imageDeck.length === 0) {
+    refillImageDeck();
   }
+
+  const nextImage = imageDeck.shift();
 
   currentImage = nextImage;
   screenshot.src = nextImage;
